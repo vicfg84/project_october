@@ -1,13 +1,12 @@
 
-rm(list=ls())
+# rm(list=ls())
 ######################################################
 #
-#         RESULTS
+#   READING OF THE RESULTS
 
 getwd()
 
 result=read.table(file="res_essai_night4.csv",header=TRUE,sep=";")
-
 
 nrow(result)
 
@@ -16,9 +15,6 @@ head(result)
 names(result)=gsub("_onetime", "_OT", names(result))
 names(result)=gsub("_probability", "_PR", names(result))
 names(result)=gsub("_stability", "_ST", names(result))
-
-
-
 
 
 rest_division= (1:dim(result)[2])%%6          
