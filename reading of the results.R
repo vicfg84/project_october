@@ -1,12 +1,13 @@
 
-# rm(list=ls())
+rm(list=ls())
 ######################################################
 #
-#   READING OF THE RESULTS
+#         RESULTS
 
 getwd()
 
 result=read.table(file="res_essai_night4.csv",header=TRUE,sep=";")
+
 
 nrow(result)
 
@@ -15,6 +16,9 @@ head(result)
 names(result)=gsub("_onetime", "_OT", names(result))
 names(result)=gsub("_probability", "_PR", names(result))
 names(result)=gsub("_stability", "_ST", names(result))
+
+
+
 
 
 rest_division= (1:dim(result)[2])%%6          
@@ -51,7 +55,7 @@ abline(v = c(12.5,18.5,24.5), col = "red", lty = 3)
 boxplot(result[,col_specificity[ind_selec ]],main="Specificity",names=unlist(strsplit(names(result[,col_specificity[ind_selec ]]),"_specificity")),las=2, cex.axis=0.7)
 abline(v = c(12.5,18.5,24.5), col = "red", lty = 3)
 
-# result[,which(grepl(pattern="RMSE$",x=names(result))&!grepl(pattern="SD",x=names(result)))]
+result[,which(grepl(pattern="RMSE$",x=names(result))&!grepl(pattern="SD",x=names(result)))]
 
 
 
